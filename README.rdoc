@@ -1,2 +1,5 @@
 == README
 ダークソウル風TRPG用のセッションボード
+
+heroku
+https://powerful-reef-95877.herokuapp.com
