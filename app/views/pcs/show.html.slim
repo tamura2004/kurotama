@@ -1,0 +1,11 @@
+-if @pc.travels.present?
+  .row
+    = render @pc.travels if @pc.travels.present?
+
+- if @pc.moves.present?
+  = panel "どうする？"
+    = list_group
+      = render @pc.moves
+
+/ .btn-group.btn-group-justified
+/   = render @travels

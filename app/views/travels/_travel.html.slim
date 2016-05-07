@@ -1,0 +1,44 @@
+-if travel.map
+  .col-xs-4
+    = link_to travel.path, method: :post
+      .thumbnail.btn-high
+        .caption
+          h4 = travel.map.name
+          - travel.map.paths.each do |path|
+            br
+            span.label.label-primary = path.name
+
+          - if travel.map.path
+            br
+            span.label.label-primary = travel.map.path.name
+
+            - travel.map.mobs.each do |mob|
+              br
+              span.label.label-danger = mob.name
+
+
+
+/   = link_to [travel, travel: travel.attributes.compact.except("created_at","updated_at")], class: "btn btn-default btn-lg btn-high", method: :post
+/   =
+
+
+
+
+
+/ = link_to menu.label, [menu,menu.attributes], class: menu.view_class, method: :patch
+
+/   "b200 btn btn-default btn-lg"
+
+/ - if travel.map
+
+/   = link_to [travel, travel: travel.attributes.compact.except("created_at","updated_at")], class: "btn btn-default btn-lg btn-high", method: :post
+/     = travel.map.name
+/     span.label.label-primary gate
+/     - if travel.map.path
+/       span.label-primary = travel.map.path.name
+
+- else
+
+  .col-xs-4
+    .thumbnail.btn-high.gray
+  / .btn.btn-defaunt.btn-lg.btn-high none
