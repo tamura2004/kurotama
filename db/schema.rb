@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507070144) do
+ActiveRecord::Schema.define(version: 20160508054456) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer  "pc_id"
@@ -71,15 +71,11 @@ ActiveRecord::Schema.define(version: 20160507070144) do
     t.string   "name"
     t.integer  "pc_id"
     t.integer  "mob_id"
-    t.integer  "boss_id"
-    t.integer  "item_id"
     t.integer  "map_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "moves", ["boss_id"], name: "index_moves_on_boss_id"
-  add_index "moves", ["item_id"], name: "index_moves_on_item_id"
   add_index "moves", ["map_id"], name: "index_moves_on_map_id"
   add_index "moves", ["mob_id"], name: "index_moves_on_mob_id"
   add_index "moves", ["pc_id"], name: "index_moves_on_pc_id"

@@ -1,0 +1,21 @@
+-if move_form.map_id
+  .col-xs-4
+    = link_to move_form.path, method: :post
+      .thumbnail.btn-high
+        = image_tag sprintf("land/%03d.png",rand(42))
+        .caption
+          h4 = move_form.map.name
+          - move_form.map.paths.each do |path|
+            br
+            = tag_label path.name, :primary
+            / span.label.label-primary = path.name
+
+          - if move_form.map.path
+            br
+            = tag_label move_form.map.path.name, :primary
+
+          = render move_form.map.mobs
+
+- else
+  .col-xs-4
+    .thumbnail.btn-high.gray

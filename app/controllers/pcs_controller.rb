@@ -5,7 +5,7 @@ class PcsController < ApplicationController
   end
 
   def show
-    @pc.build_travels
+    redirect_to :new_move_form
   end
 
   private
