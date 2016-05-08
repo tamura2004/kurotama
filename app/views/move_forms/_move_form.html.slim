@@ -2,7 +2,7 @@
   .col-xs-4
     = link_to move_form.path, method: :post
       .thumbnail.btn-high
-        = image_tag sprintf("land/%03d.png",rand(42))
+        = image_tag move_form.map.image.source
         .caption
           h4 = move_form.map.name
           - move_form.map.paths.each do |path|

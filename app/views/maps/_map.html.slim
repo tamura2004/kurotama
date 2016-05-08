@@ -1,5 +1,13 @@
 .col-xs-4
   .thumbnail
-    = image_tag sprintf("land/%03d.png",rand(22))
+    = link_to new_map_image_form_path(map_id: map.id)
+      - if map.image
+        = image_tag map.image.source
+      - else
+        = image_tag sprintf("land/%03d.png",rand(22))
     .caption
       h4 = map.name
+      - if map.image
+        = tag_label "確定済", :primary
+      - else
+        = tag_label "未確定", :danger

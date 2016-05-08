@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508054456) do
+ActiveRecord::Schema.define(version: 20160508054458) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer  "pc_id"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20160508054456) do
   end
 
   add_index "abilities", ["pc_id"], name: "index_abilities_on_pc_id"
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.string   "source"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
 
   create_table "maps", force: :cascade do |t|
     t.integer  "no"
