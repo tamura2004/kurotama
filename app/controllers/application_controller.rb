@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   private
 
   def pc
-    @pc ||= Pc.find(0)
+    id = session[:pc_id] || 0
+    @pc ||= Pc.find(id)
   end
 
 end

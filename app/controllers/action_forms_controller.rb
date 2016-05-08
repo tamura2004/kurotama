@@ -27,9 +27,9 @@ class ActionFormsController < ApplicationController
       paths = map.paths
 
       actions << ActionForm.new(name: "調べる")
-      actions << ActionForm.new(name: path.name + "へ行く", map_id: path.id) if path
+      actions << ActionForm.new(name: "<span><span class='label label-primary'>#{path.name}</span>へ行く</span>", map_id: path.id) if path
       paths.each do |path|
-        actions << ActionForm.new(name: path.name + "へ行く", map_id: path.id)
+        actions << ActionForm.new(name: "<span><span class='label label-primary'>#{path.name}</span>へ行く</span>", map_id: path.id)
       end
       actions
     end

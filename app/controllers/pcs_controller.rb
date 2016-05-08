@@ -5,7 +5,10 @@ class PcsController < ApplicationController
   end
 
   def show
-    redirect_to :new_move_form
+  end
+
+  def new
+    redirect_to :new_pc_name_form
   end
 
   private

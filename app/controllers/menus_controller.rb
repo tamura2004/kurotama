@@ -11,11 +11,10 @@ class MenusController < ApplicationController
     case params[:menu][:name]
 
     when "続きから"
-      redirect_to pc
+      redirect_to :pcs
 
     when "新規作成"
-      Pc.find(0).update(map_id:0)
-      redirect_to pc
+      redirect_to :new_pc
 
     end
   end

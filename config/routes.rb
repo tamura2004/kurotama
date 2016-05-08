@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root "menus#new"
+  root "menus#top"
+  get "menus/top"
 
   resources :pcs
   resources :maps
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   resources :action_forms, only: [:new, :create]
   resources :move_forms, only: [:new, :create]
   resources :map_image_forms, only: [:new, :create]
-  resources :pc_job_form, only: [:new, :create]
+  resources :pc_job_forms, only: [:new, :create]
+  resources :pc_name_forms, only: [:new, :create]
+  resources :current_pcs, only: [:create]
 
 end

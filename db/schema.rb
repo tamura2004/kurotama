@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508054458) do
+ActiveRecord::Schema.define(version: 20160508121248) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer  "pc_id"
@@ -99,6 +99,21 @@ ActiveRecord::Schema.define(version: 20160508054458) do
     t.integer  "map_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "job"
+    t.string   "race"
+    t.string   "weapon"
+    t.string   "shield"
+    t.string   "ring"
+    t.string   "item"
+    t.integer  "est"
+    t.integer  "str"
+    t.integer  "dex"
+    t.integer  "con"
+    t.integer  "int"
+    t.integer  "wis"
+    t.integer  "cha"
+    t.integer  "level"
+    t.string   "armor"
   end
 
   add_index "pcs", ["map_id"], name: "index_pcs_on_map_id"

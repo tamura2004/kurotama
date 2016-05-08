@@ -5,6 +5,10 @@
         = image_tag move_form.map.image.source
         .caption
           h4 = move_form.map.name
+
+          - move_form.map.pcs.each do |pc|
+            = tag_label pc.name, :success
+
           - move_form.map.paths.each do |path|
             br
             = tag_label path.name, :primary

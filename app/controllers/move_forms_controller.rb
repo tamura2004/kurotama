@@ -9,11 +9,19 @@ class MoveFormsController < ApplicationController
     case form.name
 
     when "左", "右"
+      puts "-"*100
+      p form
+      p pc
+
       pc.update(map_id: form.map_id)
+      p pc
       redirect_to :new_move_form
 
     when "中央"
       redirect_to :new_action_form
+
+    else
+      raise "異常な移動フォーム名"
 
     end
   end

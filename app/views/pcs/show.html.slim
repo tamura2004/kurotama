@@ -1,3 +1,17 @@
 .row
-  / = render @pc.travels if @pc.travels.present?
+  .col-xs-4
+    .thumbnail
+      = image_tag @pc.image.source
+      .caption
+        h3 = @pc.name
+        p: small = @pc.race
+        p: small = @pc.job
+        p: small = @pc.level
+        p: small = @pc.weapon
+        p: small = @pc.shield
+        p: small = @pc.armor
+
+
+        = link_to "選ぶ", current_pcs_path(id: @pc.id), class: "btn btn-primary", method: :post
+        .btn.btn-default role="button" 情報
 
