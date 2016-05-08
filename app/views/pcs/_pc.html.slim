@@ -5,11 +5,9 @@
       h3 = pc.name
       = tag_label pc.race, :default
       = tag_label pc.job, :default
-      = tag_label pc.level, :default
-      br
+      = tag_label "#{pc.level}lv", :default
       = tag_label "#{pc.hp}hp", :default
       = tag_label "#{pc.soul}soul", :default
-      br
       = tag_label pc.weapon, :default
       = tag_label pc.shield, :default
       = tag_label pc.armor, :default

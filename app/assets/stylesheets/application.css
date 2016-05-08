@@ -23,6 +23,9 @@
   background-color: #e0e0e0;
 }
 
+.label {
+  display: inline-block;
+}
 // body {
 //   font-size: 12px;
 //   font-family:  Meiryo, Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;
