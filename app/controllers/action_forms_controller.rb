@@ -13,7 +13,7 @@ class ActionFormsController < ApplicationController
 
     when /へ行く/
       pc.update(map_id: form.map_id)
-      redirect_to pc
+      redirect_to :new_move_form
 
     end
   end

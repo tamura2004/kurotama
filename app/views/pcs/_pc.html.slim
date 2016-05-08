@@ -3,13 +3,17 @@
     = image_tag pc.image.source
     .caption
       h3 = pc.name
-      p
-        span = pc.race
-        span ・
-        span = pc.job
-        span ・
-        span = pc.level
-        span lv
+      = tag_label pc.race, :default
+      = tag_label pc.job, :default
+      = tag_label pc.level, :default
+      br
+      = tag_label "#{pc.hp}hp", :default
+      = tag_label "#{pc.soul}soul", :default
+      br
+      = tag_label pc.weapon, :default
+      = tag_label pc.shield, :default
+      = tag_label pc.armor, :default
+      hr
 
       = link_to "選ぶ", current_pcs_path(id: pc.id), class: "btn btn-primary", method: :post
       .btn.btn-default role="button" 情報

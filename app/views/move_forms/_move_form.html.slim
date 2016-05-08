@@ -7,6 +7,7 @@
           h4 = move_form.map.name
 
           - move_form.map.pcs.each do |pc|
+            br
             = tag_label pc.name, :success
 
           - move_form.map.paths.each do |path|
