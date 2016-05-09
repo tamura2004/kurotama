@@ -1,4 +1,4 @@
-class MapImageForm
+class Maps::Image
   include ActiveModel::Model
   include Parameterable
 

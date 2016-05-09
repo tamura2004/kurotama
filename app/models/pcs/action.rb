@@ -1,4 +1,4 @@
-class ActionForm
+class Pcs::Action
   include ActiveModel::Model
   include Parameterable
 

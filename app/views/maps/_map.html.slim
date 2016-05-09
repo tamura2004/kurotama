@@ -1,6 +1,6 @@
 .col-xs-4
   .thumbnail
-    = link_to new_map_image_form_path(map_id: map.id)
+    = link_to new_maps_image_path(map_id: map.id)
       - if map.image
         = image_tag map.image.source
       - else

@@ -8,7 +8,7 @@ class PcsController < ApplicationController
   end
 
   def new
-    redirect_to :new_pc_name_form
+    redirect_to :new_pcs_name
   end
 
   private

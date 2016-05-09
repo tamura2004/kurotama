@@ -1,6 +1,7 @@
 .col-xs-4
   .thumbnail
-    = image_tag pc.image.source
+    = link_to new_pcs_image_path(pc_id: pc.id)
+      = image_tag pc.image.source
     .caption
       h3 = pc.name
       = tag_label pc.race, :default
@@ -13,5 +14,5 @@
       = tag_label pc.armor, :default
       hr
 
-      = link_to "選ぶ", current_pcs_path(id: pc.id), class: "btn btn-primary", method: :post
-      .btn.btn-default role="button" 情報
+      = link_to "選ぶ", current_pcs_path(id: pc.id), class: "btn btn-sm btn-primary", method: :post
+      .btn.btn-sm.btn-default role="button" 情報

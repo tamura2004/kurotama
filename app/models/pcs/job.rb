@@ -1,4 +1,4 @@
-class PcJobForm
+class Pcs::Job
   include ActiveModel::Model
   include Parameterable
 

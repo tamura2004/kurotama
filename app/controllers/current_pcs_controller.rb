@@ -1,6 +1,6 @@
 class CurrentPcsController < ApplicationController
   def create
     session[:pc_id] = params[:id]
-    redirect_to :new_move_form
+    redirect_to :new_pcs_move
   end
 end

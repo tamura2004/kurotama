@@ -1,15 +1,15 @@
-class MapImageFormsController < ApplicationController
+class Maps::ImagesController < ApplicationController
 
   def new
     id = params[:map_id]
     @map = Map.find(id)
     @images = LAND_IMAGE_FILE_PATHS.map do |file|
-      MapImageForm.new(source: file, imageable_type: "Map", imageable_id: id)
+      Maps::Image.new(source: file, imageable_type: "Map", imageable_id: id)
     end
   end
 
   def create
-    form = MapImageForm.new(params[:map_image_form])
+    form = Maps::Image.new(params[:maps_image])
     map = Map.find(form.imageable_id)
 
     if map.image

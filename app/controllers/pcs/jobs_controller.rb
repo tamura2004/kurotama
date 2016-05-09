@@ -1,7 +1,7 @@
-class PcJobFormsController < ApplicationController
+class Pcs::JobsController < ApplicationController
   def new
     @jobs = JobMaster.keys.map do |name|
-      PcJobFormsController.new(name: name)
+      Pcs::JobsController.new(name: name)
     end
   end
 
@@ -13,10 +13,10 @@ class PcJobFormsController < ApplicationController
 
     when "左", "右"
       pc.update(map_id: form.map_id)
-      redirect_to :new_move_form
+      redirect_to :new_pcs_move
 
     when "中央"
-      redirect_to :new_action_form
+      redirect_to :new_pcs_action
 
     end
   end

@@ -1,4 +1,4 @@
-class PcNameForm
+class Pcs::Name
   include ActiveModel::Model
   include Parameterable
 

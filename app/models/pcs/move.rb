@@ -1,4 +1,4 @@
-class MoveForm
+class Pcs::Move
   include ActiveModel::Model
   include Parameterable
 
