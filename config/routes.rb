@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   namespace :pcs do
     resources :actions, only: [:new, :create]
-    resources :moves, only: [:new, :create]
     resources :jobs, only: [:new, :create]
     resources :images, only: [:new, :create]
     resources :names, only: [:new, :create]
