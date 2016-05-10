@@ -7,14 +7,12 @@ class Pcs::MovesController < ApplicationController
   def create
     form = Pcs::Move.new(params[:pcs_move])
 
-    case form.name
-
-    when "左", "右"
-      pc.update(map_id: form.map_id)
-      redirect_to :new_pcs_move
-
-    when "中央"
+    if form.map_id.to_i == pc.map.id
       redirect_to :new_pcs_action
+
+    else
+      pc.update(map_id: form.map_id)
+      redirect_to :maps
 
     end
   end
@@ -24,9 +22,9 @@ class Pcs::MovesController < ApplicationController
     def build_moves
       map = pc.map
       [
-        Pcs::Move.new(map: map.left , name: "左"  ),
-        Pcs::Move.new(map: map      , name: "中央"),
-        Pcs::Move.new(map: map.right, name: "右" )
+        Pcs::Move.create(map: map.left  ),
+        Pcs::Move.create(map: map      ),
+        Pcs::Move.create(map: map.right)
       ]
     end
 

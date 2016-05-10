@@ -1,23 +1,19 @@
--if move.map_id
-  .col-xs-4
-    = link_to move.path, method: :post
-      .thumbnail.btn-high
-        = image_tag move.map.image.source
-        .caption
-          h4 = move.map.name
+.col-xs-4
+  = link_to move.path, method: :post
+    .thumbnail.btn-high
+      = image_tag move.map.image.source
+      .caption
+        h4 = move.map.name
 
-          - move.map.pcs.each do |pc|
-            = tag_label pc.name, :success
+        - move.map.pcs.each do |pc|
+          = tag_label pc.name, :success
 
-          - move.map.paths.each do |path|
-            = tag_label path.name, :primary
-            / span.label.label-primary = path.name
+        - move.map.paths.each do |path|
+          = tag_label path.name, :primary
+          / span.label.label-primary = path.name
 
-          - if move.map.path
-            = tag_label move.map.path.name, :primary
+        - if move.map.path
+          = tag_label move.map.path.name, :primary
 
-          = render move.map.mobs
+        = render move.map.mobs
 
-- else
-  .col-xs-4
-    .thumbnail.btn-high.gray

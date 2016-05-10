@@ -2,22 +2,29 @@ class Pcs::Move
   include ActiveModel::Model
   include Parameterable
 
-  attr_accessor :name, :pc_id, :map_id
+  attr_accessor :map
+  # delegate :attributes, to: :map
+
+  def self.create(map)
+    if map
+      Pcs::Move.new(map)
+    else
+      Maps::Nowhere
+    end
+  end
+
+  def initialize(map)
+    raise error "map is nil!" unless map
+    @map = map
+  end
 
   def map=(obj)
     self.map_id = obj.try(:id)
   end
 
-  def map
-    @map ||= Map.find(map_id)
+  def attributes
+    { map_id: @map.id }
   end
 
-  def attributes
-    {
-      name: name,
-      pc_id: pc_id,
-      map_id: map_id
-    }.compact
-  end
 
 end

@@ -1,13 +1,11 @@
 .col-xs-4
-  .thumbnail
-    = link_to new_maps_image_path(map_id: map.id)
-      - if map.image
-        = image_tag map.image.source
-      - else
-        = image_tag sprintf("land/%03d.png",rand(22))
-    .caption
-      h4 = map.name
-      - if map.image
-        = tag_label "確定済", :primary
-      - else
-        = tag_label "未確定", :danger
+  = link_to map.path, method: :patch
+    .thumbnail.btn-high
+      = image_tag map.image.source
+      .caption
+        h4 = map.name
+        = render Pcs::Label.build(map.pcs)
+        = render Maps::Label.build(map.paths)
+        / = render Maps::Label.new(map.parent) unless map.parent
+        = render map.mobs
+

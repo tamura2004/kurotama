@@ -9,11 +9,11 @@ class Pcs::ActionsController < ApplicationController
 
     case form.name
     when "調べる"
-      redirect_to pc
+      redirect_to :maps
 
     when /へ行く/
       pc.update(map_id: form.map_id)
-      redirect_to :new_pcs_move
+      redirect_to :maps
 
     end
   end
@@ -23,7 +23,7 @@ class Pcs::ActionsController < ApplicationController
     def build_actions
       actions = []
       map = pc.map
-      path = map.path
+      path = map.parent
       paths = map.paths
 
       actions << Pcs::Action.new(name: "調べる")
