@@ -38,3 +38,4 @@ gem 'kaminari'
 gem "seed-fu"
 gem "quiet_assets"
 gem "font-awesome-rails"
+gem "active_hash"

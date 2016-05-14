@@ -1,11 +1,15 @@
 class Pcs::Job
   include ActiveModel::Model
-  include Parameterable
-
   attr_accessor :name
 
-  def attributes
-    { name: name }
+  def self.all
+    JobMaster.keys.map do |name|
+      Pcs::Job.new(name: name)
+    end
+  end
+
+  def path
+    [self, pcs_job: {name: name}]
   end
 
 end

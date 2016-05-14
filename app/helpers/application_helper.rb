@@ -3,6 +3,10 @@ module ApplicationHelper
     link_to name, path, class: "btn btn-primary btn-lg"
   end
 
+  def btn_sm(name, path)
+    link_to name, path, class: "btn btn-default btn-sm"
+  end
+
   def panel(title,&block)
     content_tag(:div, class: %w(panel panel-default)) do
       concat content_tag(:div, title, class: "panel-heading")

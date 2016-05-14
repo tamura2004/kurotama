@@ -1,11 +1,11 @@
 .col-xs-4
-  = link_to map.path, method: :patch
+  = link_to map_path(name: map.name), method: :patch
     .thumbnail.btn-high
-      = image_tag map.image.source
+      = image_tag map.image
       .caption
         h4 = map.name
         = render Pcs::Label.build(map.pcs)
-        = render Maps::Label.build(map.paths)
+        / = render Maps::Label.build(map.paths)
         / = render Maps::Label.new(map.parent) unless map.parent
-        = render map.mobs
+        / = render map.mobs
 

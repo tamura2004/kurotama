@@ -11,59 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509143119) do
+ActiveRecord::Schema.define(version: 20160511112337) do
 
-  create_table "images", force: :cascade do |t|
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.string   "source"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
-
-  create_table "maps", force: :cascade do |t|
-    t.integer  "no"
+  create_table "characters", force: :cascade do |t|
+    t.string   "type"
     t.string   "name"
-    t.boolean  "lock"
-    t.integer  "map_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "mobs", force: :cascade do |t|
-    t.integer  "hp"
-    t.integer  "map_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-    t.integer  "str"
-    t.integer  "dex"
-    t.integer  "con"
-    t.integer  "weapon"
-    t.integer  "armor"
-    t.integer  "soul"
-  end
-
-  add_index "mobs", ["map_id"], name: "index_mobs_on_map_id"
-
-  create_table "pcs", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "soul"
-    t.integer  "hp"
-    t.integer  "fp"
-    t.integer  "mp"
-    t.integer  "map_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "job"
-    t.string   "race"
-    t.string   "weapon"
-    t.string   "shield"
-    t.string   "ring"
-    t.string   "item"
-    t.integer  "est"
+    t.string   "map_name"
+    t.string   "image"
     t.integer  "str"
     t.integer  "dex"
     t.integer  "con"
@@ -71,9 +25,26 @@ ActiveRecord::Schema.define(version: 20160509143119) do
     t.integer  "wis"
     t.integer  "cha"
     t.integer  "level"
-    t.string   "armor"
+    t.integer  "soul"
+    t.integer  "hp"
+    t.integer  "fp"
+    t.string   "job_name"
+    t.string   "race_name"
+    t.string   "weapon_name"
+    t.string   "shield_name"
+    t.string   "armor_name"
+    t.string   "spell_name"
+    t.string   "ring_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "pcs", ["map_id"], name: "index_pcs_on_map_id"
+  create_table "items", force: :cascade do |t|
+    t.string   "type"
+    t.string   "name"
+    t.string   "map_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

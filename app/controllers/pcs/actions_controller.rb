@@ -22,15 +22,15 @@ class Pcs::ActionsController < ApplicationController
 
     def build_actions
       actions = []
-      map = pc.map
-      path = map.parent
-      paths = map.paths
+      # map = pc.map
+      # path = map.parent
+      # paths = map.paths
 
       actions << Pcs::Action.new(name: "調べる")
-      actions << Pcs::Action.new(name: "<span><span class='label label-primary'>#{path.name}</span>へ行く</span>", map_id: path.id) if path
-      paths.each do |path|
-        actions << Pcs::Action.new(name: "<span><span class='label label-primary'>#{path.name}</span>へ行く</span>", map_id: path.id)
-      end
+      # actions << Pcs::Action.new(name: "<span><span class='label label-primary'>#{path.name}</span>へ行く</span>", map_id: path.id) if path
+      # paths.each do |path|
+      #   actions << Pcs::Action.new(name: "<span><span class='label label-primary'>#{path.name}</span>へ行く</span>", map_id: path.id)
+      # end
       actions
     end
 

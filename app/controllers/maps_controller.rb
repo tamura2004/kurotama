@@ -1,19 +1,19 @@
+require "pp"
 class MapsController < ApplicationController
   def index
     @maps = [pc.map.left, pc.map, pc.map.right]
   end
 
   def update
-    id = params[:map][:id].to_i
+    name = params[:name]
 
-    if pc.map_id == id
+    if name == pc.map_name
       redirect_to :new_pcs_action
 
     else
-      pc.update(map_id: id)
+      pc.update(map_name: name)
       redirect_to :maps
-
     end
-  end
 
+  end
 end

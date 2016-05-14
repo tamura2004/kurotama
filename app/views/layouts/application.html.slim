@@ -17,11 +17,14 @@ html lang="ja"
     = nav_bar fixes: :top, brand: "暗闇魂RPG", brand_link: :menus_top, responsive: true
       = menu_group
         - if @pc
-          = menu_item @pc.short_label, pc_path(@pc)
+          = menu_item @pc.name, pc_path(@pc)
 
     .container
       .row
         .col-lg-6.col-md-8.col-sm-10
-          = bootstrap_flash
+          - if @pc
+            = render Pcs::Bars::Hp.new(@pc)
+            = render Pcs::Bars::Fp.new(@pc)
           = yield
+          = bootstrap_flash
 

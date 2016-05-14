@@ -1,18 +1,26 @@
 .col-xs-4
   .thumbnail
     = link_to new_pcs_image_path(pc_id: pc.id)
-      = image_tag pc.image.source
+      = image_tag pc.image
     .caption
       h3 = pc.name
-      = tag_label pc.race, :default
-      = tag_label pc.job, :default
+      = tag_label pc.race_name, :default
+      = tag_label pc.job_name, :default
       = tag_label "#{pc.level}lv", :default
       = tag_label "#{pc.hp}hp", :default
-      = tag_label "#{pc.soul}soul", :default
-      = tag_label pc.weapon, :default
-      = tag_label pc.shield, :default
-      = tag_label pc.armor, :default
+      = tag_label "#{pc.fp}fp", :default
+      = tag_label "魂#{pc.soul}", :default
+      = tag_label "筋#{pc.str}", :default
+      = tag_label "敏#{pc.dex}", :default
+      = tag_label "体#{pc.con}", :default
+      = tag_label "理#{pc.int}", :default
+      = tag_label "信#{pc.wis}", :default
+      = tag_label "#{pc.rank}", :default
+
+      = tag_label pc.weapon_name, :info
+      = tag_label pc.shield_name, :info
+      = tag_label pc.armor_name, :info
       hr
 
-      = link_to "選ぶ", current_pcs_path(id: pc.id), class: "btn btn-sm btn-primary", method: :post
-      .btn.btn-sm.btn-default role="button" 情報
+      = link_to "戻る", current_pcs_path(id: pc.id), class: "btn btn-sm btn-primary", method: :post
+      = btn_sm "名前変更", new_pcs_name_path(pc)

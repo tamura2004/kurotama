@@ -1,35 +1,14 @@
 class Pcs::JobsController < ApplicationController
   def new
-    @jobs = JobMaster.keys.map do |name|
-      Pcs::JobsController.new(name: name)
-    end
+    @jobs = Pcs::Job.all
   end
 
   def create
-    job = JobMaster[params[:pc_job_form][:name].to_sym]
-    pc = Pc.create(job: job.name)
+    job = JobMaster[params[:pcs_job][:name]]
 
-    case form.name
+    pc = Pc.create_with_job(job)
+    session[:pc_id] = pc.id
 
-    when "左", "右"
-      pc.update(map_id: form.map_id)
-      redirect_to :new_pcs_move
-
-    when "中央"
-      redirect_to :new_pcs_action
-
-    end
+    redirect_to pc
   end
-
-  private
-
-    def build_moves
-      map = pc.map
-      [
-        MoveForm.new(map: map.left , name: "左"  ),
-        MoveForm.new(map: map      , name: "中央"),
-        MoveForm.new(map: map.right, name: "右" )
-      ]
-    end
-
 end

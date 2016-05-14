@@ -1,11 +1,10 @@
 class Pcs::Name
   include ActiveModel::Model
-  include Parameterable
 
   attr_accessor :name
 
-  def attributes
-    { name: name }
+  def path
+    [self, pcs_name: { name: name }]
   end
 
 end
