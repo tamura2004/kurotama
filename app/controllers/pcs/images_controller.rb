@@ -1,4 +1,4 @@
-class Pcs::ImagesController < Pcs::BaseController
+class Pcs::ImagesController < PcsBaseController
 
   def new
     @images = PC_IMAGES.sample(9).map do |file|

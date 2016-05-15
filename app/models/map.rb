@@ -5,20 +5,20 @@ class Map
   def initialize(attributes={})
     super
     @image ||= "no_image.png"
-    @right ||= Maps::Nowhere.new
-    @left ||= Maps::Nowhere.new
+    @right ||= ::Maps::Nowhere.new
+    @left ||= ::Maps::Nowhere.new
   end
 
   def pcs
-    Pc.where(map: name)
+    ::Pc.where(map: name)
   end
 
   def traps
-    Items::Trap.where(map: name)
+    ::Items::Trap.where(map: name)
   end
 
   def mobs
-    Mob.where(map: name)
+    ::Mob.where(map: name)
   end
 
 end

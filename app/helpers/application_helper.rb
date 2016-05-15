@@ -35,4 +35,10 @@ module ApplicationHelper
     link_to raw(name), path, class: "list-group-item", method: :delete
   end
 
+  def progress_bar(width,color,&block)
+    content_tag(:div, class: "progress") do
+      content_tag(:div, class: %W(progress-bar progress-bar-#{color}), role: "progress", style: "width:#{width}%",&block)
+    end
+  end
+
 end

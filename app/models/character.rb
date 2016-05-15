@@ -13,12 +13,27 @@ class Character < ActiveRecord::Base
     self.cha ||= cha
   end
 
+  def ability
+    [str,dex,con,int,wis,cha]
+  end
+
   def max_hp
     con * 40
   end
 
   def max_fp
     dex * 40
+  end
+
+  def damage
+    data = WEAPONS[weapon]
+    ability.zip(data["補正"]).inject(data["ダメージ"]) do |a,b|
+      a += b[0] * b[1]
+    end
+  end
+
+  def <<(damage)
+    sub_from_hp(damage)
   end
 
   def sub_from_fp(damage)
@@ -33,7 +48,7 @@ class Character < ActiveRecord::Base
   end
 
   def sub_from_hp(damage)
-    damage = sub_from_fp(damage) if shield != "素手"
+    damage = sub_from_fp(damage) unless shield !~ /盾|楯|シールド/
     update(hp: hp - damage)
   end
 
@@ -60,6 +75,7 @@ class Character < ActiveRecord::Base
 
       self.name ||= GIVEN_NAMES.sample
       self.map ||= "北の不死院"
+      self.bonefire ||= "北の不死院"
       self.image ||= PC_IMAGES.sample
 
       self.soul ||= 0

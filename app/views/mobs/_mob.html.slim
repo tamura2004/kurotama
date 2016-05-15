@@ -2,29 +2,17 @@
   .thumbnail
     = image_tag mob.image
     .caption
-      h3 = mob.name
-      / = tag_label "#{mob.level}lv", :default
-      / = tag_label "魂#{mob.soul}", :primary
-      / = tag_label "#{mob.hp}hp", :danger
-      / = tag_label "#{mob.fp}fp", :success
-      / = tag_label "筋#{mob.str}", :info
-      / = tag_label "敏#{mob.dex}", :info
-      / = tag_label "体#{mob.con}", :info
-      / = tag_label "理#{mob.int}", :info
-      / = tag_label "信#{mob.wis}", :info
-      / = tag_label "魅#{mob.cha}", :info
+      h4 = mob.fullname
 
       = tag_label mob.weapon, :warning
       = tag_label mob.shield, :warning
       = tag_label mob.armor, :warning
       hr
-      .progress
-        .progress-bar.progress-bar-danger role="progress" style="width:#{mob.hp * 100 / mob.max_hp}%"
-          | hp:
-          = mob.hp
-      .progress
-        .progress-bar.progress-bar-success role="progress" style="width:#{mob.fp * 100 / mob.max_fp}%"
-          | fp:
-          = mob.fp
 
-      = link_to "#{mob.name}を攻撃", mob_path(mob), class: "btn btn-sm btn-default btn-block", method: :patch
+      = progress_bar mob.hp * 100 / mob.max_hp, "danger"
+        = "hp: #{mob.hp}"
+
+      = progress_bar mob.fp * 100 / mob.max_fp, "success"
+        = "fp: #{mob.fp}"
+
+      = link_to "#{mob.name}を攻撃", mob_path(mob, pc_id: pc.id), class: "btn btn-sm btn-default btn-block", method: :patch

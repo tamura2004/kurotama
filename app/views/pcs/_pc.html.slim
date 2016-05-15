@@ -3,7 +3,7 @@
     = link_to new_pcs_image_path(pc_id: pc.id)
       = image_tag pc.image
     .caption
-      h3 = pc.name
+      h4 = pc.name
       = tag_label pc.race, :default
       = tag_label pc.job, :default
       = tag_label "#{pc.level}lv", :default

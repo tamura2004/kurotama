@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511112337) do
+ActiveRecord::Schema.define(version: 20160515075555) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "type"
     t.string   "name"
     t.string   "map"
+    t.string   "bonefire"
     t.string   "image"
+    t.integer  "log_id"
     t.integer  "str"
     t.integer  "dex"
     t.integer  "con"
@@ -43,6 +45,14 @@ ActiveRecord::Schema.define(version: 20160511112337) do
     t.string   "type"
     t.string   "name"
     t.string   "map"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.string   "level"
+    t.string   "title"
+    t.string   "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

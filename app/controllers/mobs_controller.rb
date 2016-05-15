@@ -1,4 +1,4 @@
-class MobsController < Pcs::BaseController
+class MobsController < PcsBaseController
   def index
   end
 
@@ -8,7 +8,13 @@ class MobsController < Pcs::BaseController
 
   def update
     @mob = Mob.find(params[:id])
-    @mob.sub_from_hp(33)
-    redirect_to :back, alert: "#{@mob.name}#{@mob.id}に33ダメージ"
+    @pc = Pc.find(params[:pc_id])
+
+    Log.info("%sは%sで%sを攻撃" % [@pc.name,@pc.weapon,@mob.fullname])
+
+    @mob << @pc.damage
+    @pc << @mob.damage
+
+    redirect_to :back
   end
 end

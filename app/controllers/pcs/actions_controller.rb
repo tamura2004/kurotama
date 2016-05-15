@@ -1,4 +1,4 @@
-class Pcs::ActionsController < Pcs::BaseController
+class Pcs::ActionsController < PcsBaseController
 
   def new
     @actions = build_actions

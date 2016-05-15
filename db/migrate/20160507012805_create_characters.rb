@@ -6,7 +6,11 @@ class CreateCharacters < ActiveRecord::Migration
 
       t.string :name
       t.string :map
+      t.string :bonefire
       t.string :image
+
+      t.integer :log_id
+      t.integer :est
 
       t.integer :str
       t.integer :dex

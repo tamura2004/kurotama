@@ -7,6 +7,8 @@ class Admins::MobsController < ApplicationController
       mob.image = "mob/亡者兵.png"
       mob.save
     end
+
+
     redirect_to :new_menu
   end
 

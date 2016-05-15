@@ -1,4 +1,4 @@
-class Pcs::NamesController < Pcs::BaseController
+class Pcs::NamesController < PcsBaseController
   def new
     @names = GIVEN_NAMES.sample(9).map do |name|
       Pcs::Name.new(name: name)

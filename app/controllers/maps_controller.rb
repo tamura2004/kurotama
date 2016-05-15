@@ -1,4 +1,4 @@
-class MapsController < Pcs::BaseController
+class MapsController < PcsBaseController
   def index
     map = MAPS[pc.map]
     @maps = [map.left, map, map.right]
@@ -21,18 +21,6 @@ class MapsController < Pcs::BaseController
 
     else
       pc.update(map: name)
-      flash[:alert] = "#{pc.name}に1000ダメージ"
-      pc.sub_from_hp(1000)
-
-      map.traps.each do |trap|
-        case trap.name
-        when "転がる石の罠"
-          damage = erand(100)
-          flash[:alert] = "#{trap.name}! #{pc.name}に#{damage}ダメージ"
-          pc.sub_from_hp(damage)
-        end
-      end
-
       redirect_to :maps
     end
 
