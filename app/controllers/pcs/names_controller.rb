@@ -1,6 +1,6 @@
-class Pcs::NamesController < ApplicationController
+class Pcs::NamesController < Pcs::BaseController
   def new
-    @names = GivenNameMaster.sample(9).map do |name|
+    @names = GIVEN_NAMES.sample(9).map do |name|
       Pcs::Name.new(name: name)
     end
   end

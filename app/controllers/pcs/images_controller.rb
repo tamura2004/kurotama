@@ -1,9 +1,7 @@
-class Pcs::ImagesController < ApplicationController
+class Pcs::ImagesController < Pcs::BaseController
 
   def new
-    id = params[:pc_id]
-    @pc = Pc.find(id)
-    @images = PC_IMAGE_FILE_PATHS.sample(9).map do |file|
+    @images = PC_IMAGES.sample(9).map do |file|
       Pcs::Image.new(source: file)
     end
   end

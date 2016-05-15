@@ -11,6 +11,11 @@ class PcsController < ApplicationController
     redirect_to :new_pcs_job
   end
 
+  def update
+    session[:pc_id] = params[:id]
+    redirect_to :maps
+  end
+
   private
 
     def set_pc

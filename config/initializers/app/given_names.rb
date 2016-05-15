@@ -1,6 +1,6 @@
 require "yaml"
 
-GivenNameMaster = YAML.load (<<EOD)
+GIVEN_NAMES = YAML.load (<<EOD)
 ---
 - アイランド
 - エイジ

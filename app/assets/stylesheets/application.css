@@ -15,7 +15,7 @@
  */
 
 .btn-high {
-  height: 250px;
+  height: 360px;
   vertical-align: text-top;
 }
 
@@ -23,8 +23,9 @@
   background-color: #e0e0e0;
 }
 
-.label {
+span.label {
   display: inline-block;
+  margin: 1px
 }
 // body {
 //   font-size: 12px;

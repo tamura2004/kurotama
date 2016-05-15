@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160511112337) do
   create_table "characters", force: :cascade do |t|
     t.string   "type"
     t.string   "name"
-    t.string   "map_name"
+    t.string   "map"
     t.string   "image"
     t.integer  "str"
     t.integer  "dex"
@@ -28,21 +28,21 @@ ActiveRecord::Schema.define(version: 20160511112337) do
     t.integer  "soul"
     t.integer  "hp"
     t.integer  "fp"
-    t.string   "job_name"
-    t.string   "race_name"
-    t.string   "weapon_name"
-    t.string   "shield_name"
-    t.string   "armor_name"
-    t.string   "spell_name"
-    t.string   "ring_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "job"
+    t.string   "race"
+    t.string   "weapon"
+    t.string   "shield"
+    t.string   "armor"
+    t.string   "spell"
+    t.string   "ring"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.string   "type"
     t.string   "name"
-    t.string   "map_name"
+    t.string   "map"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

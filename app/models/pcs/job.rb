@@ -3,7 +3,7 @@ class Pcs::Job
   attr_accessor :name
 
   def self.all
-    JobMaster.keys.map do |name|
+    JOBS.keys.map do |name|
       Pcs::Job.new(name: name)
     end
   end

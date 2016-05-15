@@ -4,9 +4,9 @@ class Pcs::JobsController < ApplicationController
   end
 
   def create
-    job = JobMaster[params[:pcs_job][:name]]
+    job = JOBS[params[:pcs_job][:name]]
 
-    pc = Pc.create_with_job(job)
+    pc = Pc.create(job)
     session[:pc_id] = pc.id
 
     redirect_to pc

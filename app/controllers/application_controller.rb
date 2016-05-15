@@ -3,9 +3,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def pc
-    id = session[:pc_id] || 0
-    @pc ||= Pc.find(id)
+  def erand(n)
+    (-n*Math.log(rand)).to_i
   end
 
 end

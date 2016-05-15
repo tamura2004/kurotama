@@ -5,7 +5,7 @@ class CreateCharacters < ActiveRecord::Migration
       t.string :type
 
       t.string :name
-      t.string :map_name
+      t.string :map
       t.string :image
 
       t.integer :str
@@ -20,13 +20,13 @@ class CreateCharacters < ActiveRecord::Migration
       t.integer :hp
       t.integer :fp
 
-      t.string  :job_name
-      t.string  :race_name
-      t.string  :weapon_name
-      t.string  :shield_name
-      t.string  :armor_name
-      t.string  :spell_name
-      t.string  :ring_name
+      t.string  :job
+      t.string  :race
+      t.string  :weapon
+      t.string  :shield
+      t.string  :armor
+      t.string  :spell
+      t.string  :ring
 
       t.timestamps null: false
     end

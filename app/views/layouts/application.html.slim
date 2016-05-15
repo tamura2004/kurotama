@@ -18,13 +18,15 @@ html lang="ja"
       = menu_group
         - if @pc
           = menu_item @pc.name, pc_path(@pc)
+        = menu_item "PC一覧", pcs_path
+        = menu_item "モブ再作成", admins_mobs_setup_path
 
     .container
       .row
         .col-lg-6.col-md-8.col-sm-10
+          = bootstrap_flash
           - if @pc
             = render Pcs::Bars::Hp.new(@pc)
             = render Pcs::Bars::Fp.new(@pc)
           = yield
-          = bootstrap_flash
 

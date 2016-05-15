@@ -3,7 +3,7 @@ class Pcs::Bars::Fp
   attr_accessor :pc
   delegate :fp, :max_fp, to: :pc
 
-  MAX_WIDTH = 400
+  MAX_WIDTH = 2000
 
   def initialize(pc,attributes={})
     super(attributes)

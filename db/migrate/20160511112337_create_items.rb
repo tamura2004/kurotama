@@ -4,8 +4,8 @@ class CreateItems < ActiveRecord::Migration
 
       t.string :type
 
-      t.string  :name
-      t.string :map_name
+      t.string :name
+      t.string :map
 
       t.timestamps null: false
     end

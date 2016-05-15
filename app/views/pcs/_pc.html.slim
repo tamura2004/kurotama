@@ -4,23 +4,23 @@
       = image_tag pc.image
     .caption
       h3 = pc.name
-      = tag_label pc.race_name, :default
-      = tag_label pc.job_name, :default
+      = tag_label pc.race, :default
+      = tag_label pc.job, :default
       = tag_label "#{pc.level}lv", :default
-      = tag_label "#{pc.hp}hp", :default
-      = tag_label "#{pc.fp}fp", :default
-      = tag_label "魂#{pc.soul}", :default
-      = tag_label "筋#{pc.str}", :default
-      = tag_label "敏#{pc.dex}", :default
-      = tag_label "体#{pc.con}", :default
-      = tag_label "理#{pc.int}", :default
-      = tag_label "信#{pc.wis}", :default
-      = tag_label "#{pc.rank}", :default
+      = tag_label "魂#{pc.soul}", :primary
+      = tag_label "#{pc.hp}hp", :danger
+      = tag_label "#{pc.fp}fp", :success
+      = tag_label "筋#{pc.str}", :info
+      = tag_label "敏#{pc.dex}", :info
+      = tag_label "体#{pc.con}", :info
+      = tag_label "理#{pc.int}", :info
+      = tag_label "信#{pc.wis}", :info
+      = tag_label "魅#{pc.cha}", :info
 
-      = tag_label pc.weapon_name, :info
-      = tag_label pc.shield_name, :info
-      = tag_label pc.armor_name, :info
+      = tag_label pc.weapon, :warning
+      = tag_label pc.shield, :warning
+      = tag_label pc.armor, :warning
       hr
 
-      = link_to "戻る", current_pcs_path(id: pc.id), class: "btn btn-sm btn-primary", method: :post
+      = link_to "選択", pc_path(pc), class: "btn btn-sm btn-primary", method: :patch
       = btn_sm "名前変更", new_pcs_name_path(pc)

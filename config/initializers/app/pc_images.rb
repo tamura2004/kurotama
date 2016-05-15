@@ -1,0 +1,1 @@
+PC_IMAGES = 95.times.map{|i|"pc/%03d.png" % i}

@@ -10,7 +10,15 @@ class Map
   end
 
   def pcs
-    Pc.where(map_name: name)
+    Pc.where(map: name)
+  end
+
+  def traps
+    Items::Trap.where(map: name)
+  end
+
+  def mobs
+    Mob.where(map: name)
   end
 
 end
