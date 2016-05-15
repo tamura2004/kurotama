@@ -1,6 +1,7 @@
 class Character < ActiveRecord::Base
-  before_validation :check_hp, :recover_fp
+  before_validation :recover_fp
   after_initialize :set_default_value
+  after_commit :check_hp
 
   def ability=(ability)
     str,dex,con,int,wis,cha = ability

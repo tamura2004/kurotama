@@ -10,6 +10,7 @@ class MapsController < PcsBaseController
     @cards << map
     @cards += map.pcs
     @cards += map.mobs.where("hp > 0")
+    @cards += map.souls
   end
 
   def update

@@ -14,11 +14,15 @@ class Map
   end
 
   def traps
-    ::Items::Trap.where(map: name)
+    ::Items::Trap.where(owner: name)
   end
 
   def mobs
     ::Mob.where(map: name)
+  end
+
+  def souls
+    ::Items::Soul.where(owner: name)
   end
 
 end

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160515075555) do
     t.string   "bonefire"
     t.string   "image"
     t.integer  "log_id"
+    t.integer  "est"
     t.integer  "str"
     t.integer  "dex"
     t.integer  "con"
@@ -43,8 +44,11 @@ ActiveRecord::Schema.define(version: 20160515075555) do
 
   create_table "items", force: :cascade do |t|
     t.string   "type"
+    t.string   "owner"
+    t.string   "image"
     t.string   "name"
-    t.string   "map"
+    t.integer  "level"
+    t.integer  "soul"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

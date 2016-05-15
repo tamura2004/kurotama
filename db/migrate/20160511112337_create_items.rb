@@ -3,9 +3,13 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
 
       t.string :type
+      t.string :owner
+      t.string :image
 
       t.string :name
-      t.string :map
+
+      t.integer :level
+      t.integer :soul
 
       t.timestamps null: false
     end

@@ -6,6 +6,7 @@
         h4 = map.name
         = render Pcs::Label.build(map.pcs)
         = render Items::Label.build(map.traps)
+        = render Items::Label.build(map.souls)
         = render Mobs::Label.build(map.mobs)
         / = render Maps::Label.build(map.paths)
         / = render Maps::Label.new(map.parent) unless map.parent

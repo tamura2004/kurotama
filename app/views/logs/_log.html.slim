@@ -1,2 +1,2 @@
-.alert.alert-danger
+= content_tag(:div, class: "alert alert-#{log.level}")
   = log.message

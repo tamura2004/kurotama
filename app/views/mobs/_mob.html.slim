@@ -15,4 +15,4 @@
       = progress_bar mob.fp * 100 / mob.max_fp, "success"
         = "fp: #{mob.fp}"
 
-      = link_to "#{mob.name}を攻撃", mob_path(mob, pc_id: pc.id), class: "btn btn-sm btn-default btn-block", method: :patch
+      = link_to "#{mob.name}を攻撃", mob_path(mob, pc_id: pc.id), class: "btn btn-sm btn-primary btn-block", method: :patch

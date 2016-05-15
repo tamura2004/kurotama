@@ -1,0 +1,10 @@
+.col-xs-4
+  .thumbnail
+    = image_tag soul.image
+    .caption
+      h4 = soul.name
+
+      = tag_label "魂#{soul.soul}", :warning
+      hr
+
+      = link_to "収得する", items_soul_path(soul), class: "btn btn-sm btn-primary btn-block", method: :delete
