@@ -5,7 +5,7 @@ class Mob < Character
 
   def you_died
     Items::Soul.create_from_mob(self)
-    Log.info("%sを倒した" % fullname)
+    Log.success("%sを倒した" % fullname)
     delete
   end
 end

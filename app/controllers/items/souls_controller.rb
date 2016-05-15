@@ -1,12 +1,18 @@
 class Items::SoulsController < PcsBaseController
   def destroy
-    @soul = Items::Soul.find(params[:id])
-    pc.update(soul: pc.soul + @soul.soul)
+    if @soul = Items::Soul.find_by(id:params[:id])
+      pc.update(soul: pc.soul + @soul.soul)
 
-    message = "%sは%sから%sソウルを得た" % [pc.name, @soul.name, @soul.soul]
-    Log.info(message)
+      message = "%sは%sから%sソウルを得た" % [pc.name, @soul.name, @soul.soul]
+      Log.success(message)
 
-    @soul.delete
+      @soul.delete
+
+    else
+      message = "ソウルは誰かが持ち去った"
+      Log.warning(message)
+
+    end
     redirect_to :back
   end
 end

@@ -7,16 +7,20 @@ class MobsController < PcsBaseController
   end
 
   def update
-    @mob = Mob.find(params[:id])
-    @pc = Pc.find(params[:pc_id])
-    damage = erand(@pc.damage)
+    if @mob = Mob.find_by(id: params[:id])
 
-    message = "%sは%sを%sで攻撃。%sダメージ！"
-    values = [@pc.name, @mob.fullname, @pc.weapon, damage]
-    Log.info(message % values)
+      damage = erand(pc.damage)
 
-    @mob << damage
-    @pc << erand(@mob.damage)
+      message = "%sは%sを%sで攻撃。%sダメージ！"
+      values = [pc.name, @mob.fullname, pc.weapon, damage]
+      Log.success(message % values)
+
+      @mob << damage
+      pc << erand(@mob.damage)
+
+    else
+      Log.warning("モブは誰かに倒された")
+    end
 
     redirect_to :back
   end
