@@ -2,7 +2,7 @@
   .thumbnail
     = image_tag mob.image
     .caption
-      h3 = mob.name
+      h3 = "#{mob.name}#{mob.id}"
       / = tag_label "#{mob.level}lv", :default
       / = tag_label "魂#{mob.soul}", :primary
       / = tag_label "#{mob.hp}hp", :danger

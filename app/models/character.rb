@@ -33,7 +33,7 @@ class Character < ActiveRecord::Base
   end
 
   def sub_from_hp(damage)
-    damage = sub_from_fp(damage) if shield != "素手"
+    damage = sub_from_fp(damage) if shield != "素手" && shield != "なし"
     update(hp: hp - damage)
   end
 
