@@ -41,4 +41,20 @@ module ApplicationHelper
     end
   end
 
+  def post_button_to(name,path,color=:default)
+    link_to name, path, class: "btn btn-#{color} btn-block", method: :post
+  end
+
+  def patch_button_to(name,path,color=:default)
+    link_to name, path, class: "btn btn-#{color} btn-block", method: :patch
+  end
+
+  def delete_button_to(name,path,color=:default)
+    link_to name, path, class: "btn btn-#{color} btn-block", method: :delete
+  end
+
+  def get_button_to(name,path,color=:default)
+    link_to name, path, class: "btn btn-#{color} btn-block"
+  end
+
 end

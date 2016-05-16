@@ -1,0 +1,13 @@
+.col-xs-4
+  .thumbnail
+    = image_tag pc.image
+    .caption
+      h4 = pc.name
+
+      = render Bars::Hp.new(pc)
+      = render Bars::Fp.new(pc)
+      hr
+
+      - if pc.id == @pc.id
+        = post_button_to "エストを飲む", :pcs_ests
+      = get_button_to "情報を見る", pc_path(pc.id)

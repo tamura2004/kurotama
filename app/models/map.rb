@@ -1,28 +1,41 @@
 class Map
   include ActiveModel::Model
-  attr_accessor :name, :image, :left, :right
+  attr_accessor :name
 
-  def initialize(attributes={})
-    super
-    @image ||= "no_image.png"
-    @right ||= ::Maps::Nowhere.new
-    @left ||= ::Maps::Nowhere.new
+  def self.build(name)
+    name ? new(name) : Maps::Nowhere.new
+  end
+
+  def initialize(name)
+    @name = name
+  end
+
+  def right
+    Map.build MAPS[name]["right"]
+  end
+
+  def left
+    Map.build MAPS[name]["left"]
   end
 
   def pcs
-    ::Pc.where(map: name)
+    Pc.where(map: name)
   end
 
   def traps
-    ::Items::Trap.where(owner: name)
+    Items::Trap.where(owner: name)
   end
 
   def mobs
-    ::Mob.where(map: name)
+    Mob.where(map: name)
   end
 
   def souls
-    ::Items::Soul.where(owner: name)
+    Items::Soul.where(owner: name)
+  end
+
+  def image
+    "land/#{name}.png"
   end
 
 end

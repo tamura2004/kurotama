@@ -1,0 +1,11 @@
+.col-xs-4
+  .thumbnail
+    = image_tag mob.image
+    .caption
+      h4 = mob.fullname
+
+      = render Bars::Hp.new(mob)
+      = render Bars::Fp.new(mob)
+      hr
+
+      = patch_button_to "#{mob.fullname}を攻撃", mob_path(mob.id, pc_id: pc.id)

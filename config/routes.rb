@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :actions, only: [:new, :create]
     resources :images, only: [:new, :create]
     resources :names, only: [:new, :create]
+    resources :ests, only: [:create]
   end
 
   namespace :items do

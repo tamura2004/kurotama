@@ -1,9 +1,11 @@
 .col-xs-4
   .thumbnail
-    = link_to new_pcs_image_path(pc_id: pc.id)
-      = image_tag pc.image
+    = image_tag pc.image
     .caption
       h4 = pc.name
+      = render Bars::Hp.new(pc)
+      = render Bars::Fp.new(pc)
+
       = tag_label pc.race, :default
       = tag_label pc.job, :default
       = tag_label "#{pc.level}lv", :default
@@ -24,5 +26,4 @@
       = tag_label pc.ring, :warning
       hr
 
-      = get_button_to "名前変更", new_pcs_name_path(pc)
-      = get_button_to "戻る", :back
+      = patch_button_to "選ぶ", pc_path(pc.id)

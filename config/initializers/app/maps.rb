@@ -41,20 +41,20 @@ maps = YAML.load (<<MAP)
   - 灰の湖
 MAP
 
-MAPS = {}
+MAPS = Hash.new{|h,k|h[k]={}}
 
 # MAPS["北の不死院"] = Map.new(name:"北の不死院", image: "land/北の不死院.png")
 
 maps.each do |area|
   area.each do |name|
-    MAPS[name] = Map.new(name: name, image: "land/#{name}.png")
+    MAPS[name]["name"] = name
   end
 end
 
 maps.each do |area|
   area.each_cons(2) do |left, right|
-    MAPS[left].right = MAPS[right]
-    MAPS[right].left = MAPS[left]
+    MAPS[left]["right"] = MAPS[right]["name"]
+    MAPS[right]["left"] = MAPS[left]["name"]
   end
 end
 

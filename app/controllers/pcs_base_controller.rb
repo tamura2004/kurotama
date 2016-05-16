@@ -27,7 +27,7 @@ class PcsBaseController < ApplicationController
 
     def pc
       if id = session[:pc_id]
-        if @pc = Pc.find_by(id: id)
+        if @pc ||= Pc.find_by(id: id)
           @pc
         else
           session[:gameover] = true

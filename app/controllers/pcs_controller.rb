@@ -1,10 +1,18 @@
 class PcsController < ApplicationController
   before_action :set_pc, only: [:show]
   def index
-    @pcs = Pc.all
+    @pcs = Cards::Selects::Pc.build(Pc.all)
   end
 
   def show
+    @cards = []
+    @cards << Cards::Shows::Pc.new(@pc)
+    @cards << Item.new(name: @pc.weapon)
+    @cards << Item.new(name: @pc.shield)
+    @cards << Item.new(name: @pc.armor)
+    @cards << Item.new(name: @pc.ring)
+    @cards << Item.new(name: @pc.spell)
+    @cards << Item.new(name: "エスト瓶")
   end
 
   def new

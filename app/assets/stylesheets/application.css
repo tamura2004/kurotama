@@ -26,6 +26,15 @@ span.label {
   display: inline-block;
   margin: 1px
 }
+
+.progress {
+  margin-bottom: 4px;
+}
+
+hr {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
 // body {
 //   font-size: 12px;
 //   font-family:  Meiryo, Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;

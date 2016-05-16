@@ -1,21 +1,21 @@
 class MapsController < PcsBaseController
   def index
-    map = MAPS[pc.map]
+    map = Map.build(pc.map)
     @maps = [map.left, map, map.right]
   end
 
   def show
-    map = MAPS[params[:name]]
+    map = Map.build(params[:name])
     @cards = []
-    @cards << map
-    @cards += map.pcs
-    @cards += map.mobs.where("hp > 0")
+    @cards << Cards::Battles::Map.new(map)
+    @cards += Cards::Battles::Pc.build(map.pcs)
+    @cards += Cards::Battles::Mob.build(map.mobs.where("hp > 0"))
     @cards += map.souls
   end
 
   def update
     name = params[:name]
-    map = MAPS[name]
+    map = Map.build(name)
 
     if name == pc.map
       redirect_to map_path(name: name)
