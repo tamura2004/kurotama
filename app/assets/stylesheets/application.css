@@ -24,6 +24,7 @@
 
 span.label {
   display: inline-block;
+  // flex-grow: 1;
   margin: 1px
 }
 
@@ -35,11 +36,42 @@ hr {
   margin-bottom: 8px;
   margin-top: 8px;
 }
-// body {
-//   font-size: 12px;
-//   font-family:  Meiryo, Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;
-// }
+body {
+  // font-size: 12px;
+  font-family:  Meiryo, Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;
+}
 
 // span.label {
 //   margin: 5px;
 // }
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.thumbnail {
+  flex-direction: column;
+  display: inline-flex;
+  flex: 1 0 auto;
+  height: auto;
+  position: relative;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+
+.flex-text {
+  flex-grow: 1;
+}
+
+.flex-row img {
+  min-width: 0;
+  width: 100%;
+}

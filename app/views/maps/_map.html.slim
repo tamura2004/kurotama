@@ -1,14 +1,13 @@
 .col-xs-4
-  = link_to map_path(name: map.name), method: :patch
-    .thumbnail.btn-high
-      = image_tag map.image
-      .caption
-        h4 = map.name
-        = render Pcs::Label.build(map.pcs)
-        = render Items::Label.build(map.traps)
-        = render Items::Label.build(map.souls)
-        = render Mobs::Label.build(map.mobs)
-        / = render Maps::Label.build(map.paths)
-        / = render Maps::Label.new(map.parent) unless map.parent
-        / = render map.mobs
+  .thumbnail
+    = image_tag map.image
+    .caption
+      h4 = map.name
+      = render Pcs::Label.build(map.pcs)
+      = render Items::Label.build(map.traps)
+      = render Items::Label.build(map.souls)
+      = render Mobs::Label.build(map.mobs)
+      hr
+      - name = map.name == pc.map ? "調査" : "移動"
+      = patch_button_to name, map_path(name: map.name)
 
