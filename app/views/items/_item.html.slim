@@ -1,8 +1,8 @@
-.col-xs-4
-  .thumbnail.btn-high
-    = image_tag item.image
-    .caption
-      h4 = item.name
-      hr
+.thumbnail
+  = image_tag item.image
+  .caption
+    h4 = item.name
 
-      = get_button_to "装備する", :back
+  .footer
+    hr
+    = get_button_to "装備する", :back

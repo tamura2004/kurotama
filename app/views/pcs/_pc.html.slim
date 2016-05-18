@@ -1,28 +1,27 @@
-.col-xs-4
-  .thumbnail
-    = link_to new_pcs_image_path(pc_id: pc.id)
-      = image_tag pc.image
-    .caption
-      h4 = pc.name
-      = tag_label pc.race, :default
-      = tag_label pc.job, :default
-      = tag_label "#{pc.level}lv", :default
-      = tag_label "魂#{pc.soul}", :primary
-      = tag_label "人間性#{pc.cha}", :primary
-      = tag_label "#{pc.hp}hp", :danger
-      = tag_label "#{pc.fp}fp", :success
-      = tag_label "筋#{pc.str}", :info
-      = tag_label "敏#{pc.dex}", :info
-      = tag_label "体#{pc.con}", :info
-      = tag_label "理#{pc.int}", :info
-      = tag_label "信#{pc.wis}", :info
+.thumbnail
+  = link_to new_pcs_image_path(pc_id: pc.id)
+    = image_tag pc.image
+  .caption
+    h4 = pc.name
+    = tag_label pc.race, :default
+    = tag_label pc.job, :default
+    = tag_label "#{pc.level}lv", :default
+    = tag_label "魂#{pc.soul}", :primary
+    = tag_label "人間性#{pc.cha}", :primary
+    = tag_label "#{pc.hp}hp", :danger
+    = tag_label "#{pc.fp}fp", :success
+    = tag_label "筋#{pc.str}", :info
+    = tag_label "敏#{pc.dex}", :info
+    = tag_label "体#{pc.con}", :info
+    = tag_label "理#{pc.int}", :info
+    = tag_label "信#{pc.wis}", :info
 
-      = tag_label pc.weapon, :warning
-      = tag_label pc.shield, :warning
-      = tag_label pc.armor, :warning
-      = tag_label pc.spell, :warning
-      = tag_label pc.ring, :warning
-      hr
+    = tag_label pc.weapon, :warning
+    = tag_label pc.shield, :warning
+    = tag_label pc.armor, :warning
+    = tag_label pc.spell, :warning
+    = tag_label pc.ring, :warning
+    hr
 
-      = get_button_to "名前変更", new_pcs_name_path(pc)
-      = get_button_to "戻る", :back
+    = get_button_to "名前変更", new_pcs_name_path(pc)
+    = get_button_to "戻る", :back
