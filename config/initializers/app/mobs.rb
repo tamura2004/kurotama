@@ -12,9 +12,27 @@ MOBS = YAML.load (<<EOD)
   spell: なし
   ring: なし
 スケルトン:
-  ability: [30,30,5,5,5,5]
+  ability: [10,10,10,10,10,10]
   level: 10
   soul: 1000
+  weapon: グレートソード
+  shield: タワーシールド
+  armor: なし
+  spell: なし
+  ring: なし
+不死男爵:
+  ability: [20,30,30,10,10,10]
+  level: 20
+  soul: 10000
+  weapon: グレートソード
+  shield: タワーシールド
+  armor: なし
+  spell: なし
+  ring: なし
+不死院のデーモン:
+  ability: [20,30,50,10,10,10]
+  level: 30
+  soul: 20000
   weapon: グレートソード
   shield: タワーシールド
   armor: なし

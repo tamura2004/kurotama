@@ -8,15 +8,26 @@ class MobsController < PcsBaseController
 
   def update
     if @mob = Mob.find_by(id: params[:id])
+      pcs = Pc.where(map: pc.map)
+      reds = Pc.where(ring: "赤目の指輪")
+      mobs = Mob.where(map: pc.map)
 
-      damage = erand(pc.damage)
+      pc.attack(@mob)
 
-      message = "%sは%sを%sで攻撃。%sダメージ！"
-      values = [pc.name, @mob.fullname, pc.weapon, damage]
-      Log.success(message % values)
+      speed = mobs.size.to_f / pcs.size
 
-      @mob << damage
-      pc << erand(@mob.damage)
+      while speed > 1
+        if reds.present?
+          mobs.sample.attack(reds.sample)
+        else
+          mobs.sample.attack(pcs.sample)
+        end
+        speed -= 1
+      end
+
+      if speed > rand
+        mobs.sample.attack(pcs.sample)
+      end
 
     else
       Log.warning("モブは誰かに倒された")

@@ -1,12 +1,29 @@
 class Admins::MobsController < ApplicationController
   def setup
     Mob.delete_all
-    5.times do
+    10.times do
       mob = Mob.new(MOBS["亡者兵"])
       mob.map = "不死院の広間"
       mob.image = "mob/亡者兵.png"
       mob.save
     end
+
+    3.times do
+      mob = Mob.new(MOBS["スケルトン"])
+      mob.map = "不死院の階段"
+      mob.image = "mob/スケルトン.png"
+      mob.save
+    end
+
+    mob = Mob.new(MOBS["不死男爵"])
+    mob.map = "不死院の門"
+    mob.image = "mob/不死男爵.png"
+    mob.save
+
+    mob = Mob.new(MOBS["不死院のデーモン"])
+    mob.map = "不死院の門"
+    mob.image = "mob/不死院のデーモン.png"
+    mob.save
 
     redirect_to :new_menu
   end

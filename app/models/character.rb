@@ -26,6 +26,18 @@ class Character < ActiveRecord::Base
     dex * 40
   end
 
+  def attack(other)
+    dm = erand(damage)
+    message = sprintf("%sは%sを%sで攻撃。%sダメージ！",name,other.name,weapon,dm)
+    case other
+    when Mob
+      Log.success(message)
+    when Pc
+      Log.danger(message)
+    end
+    other.sub_from_hp(dm)
+  end
+
   def damage
     data = WEAPONS[weapon]
     ability.zip(data["補正"]).inject(data["ダメージ"]) do |a,b|
@@ -83,4 +95,9 @@ class Character < ActiveRecord::Base
       self.hp ||= max_hp
       self.fp ||= max_fp
     end
+
+    def erand(n)
+      (-n*Math.log(rand)).to_i
+    end
+
 end
