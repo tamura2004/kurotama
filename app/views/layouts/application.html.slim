@@ -25,8 +25,8 @@ html lang="ja"
       .row
         .col-lg-6.col-md-8.col-sm-10
           = bootstrap_flash
-          - if @logs
-            = render @logs
+          / - if @logs
+          /   = render collections: @logs, partial: "logs/log"
 
           = yield
 

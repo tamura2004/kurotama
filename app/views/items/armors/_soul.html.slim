@@ -1,0 +1,9 @@
+.thumbnail
+  = image_tag armors.image
+  .caption
+    h4 = armors.name
+    = tag_label "魂#{armors.armors}", :warning
+
+  .footer
+    hr
+    = post_button_to "購入する", items_soul_path(armors)

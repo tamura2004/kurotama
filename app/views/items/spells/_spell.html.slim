@@ -1,0 +1,9 @@
+.thumbnail
+  = image_tag spell.image
+  .caption
+    h4 = spell.name
+    = tag_label "魂#{spell.spell}", :warning
+
+  .footer
+    hr
+    = delete_button_to "収得する", items_soul_path(spell)

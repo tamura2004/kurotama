@@ -9,6 +9,7 @@ class MapsController < PcsBaseController
     @cards = []
     @cards << Cards::Battles::Map.new(map)
     @cards += Cards::Battles::Pc.build(map.pcs)
+    @cards += Cards::Battles::Npc.build(map.npcs)
     @cards += Cards::Battles::Mob.build(map.mobs.where("hp > 0"))
     @cards += map.souls
   end

@@ -28,6 +28,9 @@ Rails.application.routes.draw do
 
   namespace :items do
     resources :souls, only: [:destroy]
+    resources :shields
+    resources :armors
+    resources :weapons
   end
 
 end

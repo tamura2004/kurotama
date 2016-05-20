@@ -3,6 +3,7 @@
   .caption
     h4 = map.name
     = render Pcs::Label.build(map.pcs)
+    = render Npcs::Label.build(map.npcs)
     = render Items::Label.build(map.traps)
     = render Items::Label.build(map.souls)
     = render Mobs::Label.build(map.mobs)

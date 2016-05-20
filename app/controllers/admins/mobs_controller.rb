@@ -25,6 +25,13 @@ class Admins::MobsController < ApplicationController
     mob.image = "mob/不死院のデーモン.png"
     mob.save
 
+    Npc.delete_all
+    npc = Npc.create do |p|
+      p.name = "鍛冶屋レニガッツ"
+      p.map = "北の不死院"
+      p.image = "pc/026.png"
+    end
+
     redirect_to :new_menu
   end
 

@@ -1,0 +1,11 @@
+.thumbnail
+  = image_tag npc.image
+  .caption
+    h4 = npc.name
+    p なんだ、また来たのか
+    hr
+
+    = get_button_to "盾を買う", :new_items_shield
+    = get_button_to "鎧を買う", :new_items_armor
+    = get_button_to "武器を買う", :new_items_weapon
+    = get_button_to "戻る", :back

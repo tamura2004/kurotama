@@ -34,6 +34,10 @@ class Map
     Items::Soul.where(owner: name)
   end
 
+  def npcs
+    Npc.where(map: name)
+  end
+
   def image
     "land/#{name}.png"
   end
