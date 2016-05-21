@@ -11,6 +11,8 @@ Rails.application.configure do
   config.consider_all_requests_local = true
   config.eager_load = false
 
+  config.web_console.whitelisted_ips = "192.168.33.0/24"
+
   # config.reload_classes_only_on_change = false
 
   config.after_initialize do

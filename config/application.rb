@@ -41,7 +41,6 @@ module Kurotama
 
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.web_console.whitelisted_ips = "192.168.33.0/24"
 
   end
 end
