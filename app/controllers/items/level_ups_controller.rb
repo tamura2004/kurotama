@@ -23,7 +23,7 @@ class Items::LevelUpsController < PcsBaseController
           pc.cha += 1
         end
         pc.save
-        Log.success("%sは%s" % [pc.name, @name, @level_up.price])
+        Log.success("%sは%s" % [pc.name, @level_up.name])
 
       end
     end

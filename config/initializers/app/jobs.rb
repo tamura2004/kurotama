@@ -75,8 +75,9 @@ JOBS = YAML.load (<<EOD)
   spell: 大回復
   ring: なし
 持たざるもの:
-  ability: [10,10,10,10,10,10]
+  ability: [3,3,3,3,3,3]
   level: 1
+  soul: 10000
   weapon: なし
   shield: なし
   armor: なし
