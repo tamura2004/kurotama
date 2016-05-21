@@ -76,6 +76,7 @@ JOBS = YAML.load (<<EOD)
   ring: なし
 持たざるもの:
   ability: [10,10,10,10,10,10]
+  soul: 20000
   level: 1
   weapon: なし
   shield: なし
