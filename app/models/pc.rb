@@ -5,6 +5,8 @@ class Pc < Character
 
     def you_died
       Log.danger("#{name}は死んだ")
-      delete
+      update do |pc|
+        pc.map = "北の不死院"
+      end
     end
 end

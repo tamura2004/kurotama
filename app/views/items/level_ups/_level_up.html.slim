@@ -1,0 +1,8 @@
+.thumbnail
+  = image_tag level_up.image
+  .caption
+    h4 = level_up.name
+
+  .footer
+    hr
+    = delete_button_to "レベルアップ", items_level_up_path(level_up)

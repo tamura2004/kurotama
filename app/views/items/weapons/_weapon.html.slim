@@ -2,8 +2,7 @@
   = image_tag weapon.image
   .caption
     h4 = weapon.name
-    = tag_label "ダメージ#{armors.armors}", :default
 
   .footer
     hr
-    = post_button_to "購入する", items_weapons_path(weapon)
+    = delete_button_to "購入する", items_weapons_path(weapon)

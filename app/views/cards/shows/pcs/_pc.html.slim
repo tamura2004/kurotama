@@ -15,6 +15,11 @@
     = tag_label "理#{pc.int}", :info
     = tag_label "信#{pc.wis}", :info
 
+    = tag_label pc.weapon, :warning
+    = tag_label pc.shield, :warning
+    = tag_label pc.armor, :warning
+    = tag_label pc.spell, :warning
+    = tag_label pc.ring, :warning
   .footer
     hr
     = get_button_to "イラスト変更", :new_pcs_image

@@ -5,7 +5,7 @@ JOBS = YAML.load (<<EOD)
 騎士:
   ability: [14,9,18,6,14,15]
   level: 1
-  weapon: ブロードソード
+  weapon: 折れた直剣
   shield: 戦士の円盾
   armor: 騎士の鎧
   spell: なし
@@ -13,7 +13,7 @@ JOBS = YAML.load (<<EOD)
 戦士:
   ability: [18,16,16,6,6,6]
   level: 1
-  weapon: ロングソード
+  weapon: グレートソード
   shield: 壊れかけの木盾
   armor: ハードレザーアーマー
   spell: なし

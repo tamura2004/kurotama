@@ -6,12 +6,20 @@ class MapsController < PcsBaseController
 
   def show
     map = Map.build(params[:name])
-    @cards = []
-    @cards << Cards::Battles::Map.new(map)
-    @cards += Cards::Battles::Pc.build(map.pcs)
-    @cards += Cards::Battles::Npc.build(map.npcs)
-    @cards += Cards::Battles::Mob.build(map.mobs.where("hp > 0"))
-    @cards += map.souls
+    if map.name == "篝火"
+      Log.success "篝火を使った"
+      redirect_to :admins_mobs_setup
+
+    else
+      @cards = []
+      @cards << Cards::Battles::Map.new(map)
+      @cards += Cards::Battles::Pc.build(map.pcs)
+      @cards += Cards::Battles::Mob.build(map.mobs.where("hp > 0"))
+      @cards += map.souls
+      @cards += map.weapons
+      @cards += map.shields
+      @cards += map.level_ups
+    end
   end
 
   def update

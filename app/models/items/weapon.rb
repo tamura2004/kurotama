@@ -9,6 +9,9 @@ class Items::Weapon < Item
     weapon["ダメージ"]
   end
 
+  def price
+    WEAPONS[name]["費用"]
+  end
 
   def set_default_value
     self.image ||= "item/ソード.png"

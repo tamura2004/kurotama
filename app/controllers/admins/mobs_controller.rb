@@ -1,6 +1,7 @@
 class Admins::MobsController < ApplicationController
   def setup
     Mob.delete_all
+
     10.times do
       mob = Mob.new(MOBS["亡者兵"])
       mob.map = "不死院の広間"
@@ -15,24 +16,40 @@ class Admins::MobsController < ApplicationController
       mob.save
     end
 
-    mob = Mob.new(MOBS["不死男爵"])
-    mob.map = "不死院の門"
-    mob.image = "mob/不死男爵.png"
-    mob.save
-
     mob = Mob.new(MOBS["不死院のデーモン"])
     mob.map = "不死院の門"
     mob.image = "mob/不死院のデーモン.png"
     mob.save
 
-    Npc.delete_all
-    npc = Npc.create do |p|
-      p.name = "鍛冶屋レニガッツ"
-      p.map = "北の不死院"
-      p.image = "pc/026.png"
+    Items::Weapon.delete_all
+    WEAPONS.keys.each do |name|
+      Items::Weapon.create do |weapon|
+        weapon.name = name
+        weapon.owner = "鍛冶師アンドレイ"
+      end
     end
 
-    redirect_to :new_menu
+    Items::Shield.delete_all
+    SHIELDS.keys.each do |name|
+      Items::Shield.create do |shield|
+        shield.name = name
+        shield.owner = "鍛冶師レニガッツ"
+      end
+    end
+
+    Items::LevelUp.delete_all
+    %w(筋力up 敏捷up 体力up 理力up 信仰up 人間性up).each do |name|
+      Items::LevelUp.create do |level_up|
+        level_up.name = name
+        level_up.owner = "火防女アナスタシア"
+      end
+    end
+
+    Pc.find_each do |pc|
+      pc.update(hp: pc.max_hp, fp: pc.max_fp)
+    end
+
+    redirect_to :maps
   end
 
   def delete_all

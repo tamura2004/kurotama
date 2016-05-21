@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :shields
     resources :armors
     resources :weapons
+    resources :level_ups
   end
 
 end

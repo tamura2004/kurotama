@@ -34,6 +34,18 @@ class Map
     Items::Soul.where(owner: name)
   end
 
+  def weapons
+    Items::Weapon.where(owner: name)
+  end
+
+  def shields
+    Items::Shield.where(owner: name)
+  end
+
+  def level_ups
+    Items::LevelUp.where(owner: name)
+  end
+
   def npcs
     Npc.where(map: name)
   end

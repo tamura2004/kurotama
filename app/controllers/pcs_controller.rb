@@ -7,12 +7,12 @@ class PcsController < ApplicationController
   def show
     @cards = []
     @cards << Cards::Shows::Pc.new(@pc)
-    @cards << Items::Weapon.new(name: @pc.weapon)
-    @cards << Items::Shield.new(name: @pc.shield)
-    @cards << Items::Armor.new(name: @pc.armor)
-    @cards << Items::Ring.new(name: @pc.ring)
-    @cards << Items::Spell.new(name: @pc.spell)
-    @cards << Item.new(name: "エスト瓶")
+    # @cards << Items::Weapon.new(name: @pc.weapon)
+    # @cards << Items::Shield.new(name: @pc.shield)
+    # @cards << Items::Armor.new(name: @pc.armor)
+    # @cards << Items::Ring.new(name: @pc.ring)
+    # @cards << Items::Spell.new(name: @pc.spell)
+    # @cards << Item.new(name: "エスト瓶")
   end
 
   def new
