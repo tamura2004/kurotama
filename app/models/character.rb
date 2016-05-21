@@ -61,7 +61,7 @@ class Character < ActiveRecord::Base
   end
 
   def sub_from_hp(damage)
-    damage = sub_from_fp(damage) unless shield !~ /盾|楯|シールド/
+    damage = sub_from_fp(damage) if shield != "なし"
     update(hp: hp - damage)
   end
 

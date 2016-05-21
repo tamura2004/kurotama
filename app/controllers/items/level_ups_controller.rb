@@ -2,13 +2,15 @@ class Items::LevelUpsController < PcsBaseController
 
   def destroy
     if @level_up = Items::LevelUp.find_by(id:params[:id])
+      name = @level_up.name
+      price = @level_up.price
 
-      if pc.soul < @level_up.price
-        Log.danger("%sは%sのソウルを持っていない" % [pc.name, @name])
+      if pc.soul < price
+        Log.danger("%sは%sのソウル%sを持っていない" % [pc.name, name, price])
 
       else
-        pc.soul -= @level_up.price
-        case @level_up.name
+        pc.soul -= price
+        case name
         when "筋力up"
           pc.str += 1
         when "敏捷up"
@@ -23,7 +25,7 @@ class Items::LevelUpsController < PcsBaseController
           pc.cha += 1
         end
         pc.save
-        Log.success("%sは%s" % [pc.name, @level_up.name])
+        Log.success("%sは%s" % [pc.name, name])
 
       end
     end

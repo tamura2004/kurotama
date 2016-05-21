@@ -5,8 +5,19 @@ class Pc < Character
 
     def you_died
       Log.danger("#{name}は死んだ")
-      update do |pc|
-        pc.map = "北の不死院"
+
+      Items::Soul.create(name: "#{name}のソウル", soul: soul, owner: map)
+      Items::Weapon.create(name: weapon, owner: map)
+      Items::Shield.create(name: shield, owner: map)
+
+      tap do |p|
+        p.map = "北の不死院"
+        p.hp = max_hp
+        p.weapon = "なし"
+        p.shield = "なし"
+        p.soul = 0
       end
+      save
+
     end
 end
