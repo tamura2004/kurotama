@@ -2,9 +2,9 @@
   = image_tag shield.image
   .caption
     h4 = shield.name
-    - s = SHIELDS[shield.name]
-    - %w(物理カット 受け能力 重量 費用).each do |key|
-      = tag_label "#{key}:#{SHIELDS[shield.name][key]}", :default
+    - if s = SHIELDS[shield.name]
+      - %w(物理カット 受け能力 重量 費用).each do |key|
+        = tag_label "#{key}:#{SHIELDS[shield.name][key]}", :default
 
   .footer
     hr

@@ -2,7 +2,9 @@
   = image_tag weapon.image
   .caption
     h4 = weapon.name
-
+    - if s = WEAPONS[weapon.name]
+      - %w(ダメージ 重量 費用 要求 補正).each do |key|
+        = tag_label "#{key}:#{WEAPONS[weapon.name][key]}", :default
   .footer
     hr
     = delete_button_to "購入する", items_weapon_path(weapon)

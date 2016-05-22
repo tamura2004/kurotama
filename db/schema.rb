@@ -61,4 +61,14 @@ ActiveRecord::Schema.define(version: 20160515075555) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "right_id"
+    t.string   "right_type"
+    t.integer  "left_id"
+    t.string   "left_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

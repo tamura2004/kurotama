@@ -1,57 +1,52 @@
-class Map
-  include ActiveModel::Model
-  attr_accessor :name
+class Map < ActiveRecord::Base
+  belongs_to :right, class_name: "Map"
+  belongs_to :left, class_name: "Map"
 
-  def self.build(name)
-    name ? new(name) : Maps::Nowhere.new
-  end
+  has_many :rights, class_name: "Map", foreign_key: :right_id
+  has_many :lefts, class_name: "Map", foreign_key: :left_id
 
-  def initialize(name)
-    @name = name
-  end
+  # def self.build(name)
+  #   name ? new(name) : Maps::Nowhere.new
+  # end
 
-  def right
-    Map.build MAPS[name]["right"]
-  end
+  # def initialize(name)
+  #   @name = name
+  # end
 
-  def left
-    Map.build MAPS[name]["left"]
-  end
+  # def pcs
+  #   Pc.where(map: name)
+  # end
 
-  def pcs
-    Pc.where(map: name)
-  end
+  # def traps
+  #   Items::Trap.where(owner: name)
+  # end
 
-  def traps
-    Items::Trap.where(owner: name)
-  end
+  # def mobs
+  #   Mob.where(map: name)
+  # end
 
-  def mobs
-    Mob.where(map: name)
-  end
+  # def items
+  #   @items ||= Item.where(owner: name).to_a
+  # end
 
-  def souls
-    Items::Soul.where(owner: name)
-  end
+  # def souls
+  #   items.select{|i|i.type == "Items::Soul"}
+  # end
 
-  def weapons
-    Items::Weapon.where(owner: name)
-  end
+  # def weapons
+  #   items.select{|i|i.type == "Items::Weapon"}
+  # end
 
-  def shields
-    Items::Shield.where(owner: name)
-  end
+  # def shields
+  #   items.select{|i|i.type == "Items::Shield"}
+  # end
 
-  def level_ups
-    Items::LevelUp.where(owner: name)
-  end
+  # def level_ups
+  #   items.select{|i|i.type == "Items::LevelUp"}
+  # end
 
-  def npcs
-    Npc.where(map: name)
-  end
-
-  def image
-    "land/#{name}.png"
-  end
+  # def image
+  #   "land/#{name}.png"
+  # end
 
 end
