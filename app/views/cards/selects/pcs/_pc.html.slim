@@ -5,7 +5,6 @@
     = render Bars::Hp.new(pc)
     = render Bars::Fp.new(pc)
 
-    = tag_label pc.race, :default
     = tag_label pc.job, :default
     = tag_label "#{pc.level}lv", :default
     = tag_label "魂#{pc.soul}", :primary

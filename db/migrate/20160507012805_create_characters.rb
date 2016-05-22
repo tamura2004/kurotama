@@ -3,10 +3,10 @@ class CreateCharacters < ActiveRecord::Migration
     create_table :characters do |t|
 
       t.string :type
+      t.references :map
+      t.references :bonefire
 
-      t.string :name
-      t.string :map
-      t.string :bonefire
+      t.string :name, null: false
       t.string :image
 
       t.integer :log_id
@@ -25,12 +25,12 @@ class CreateCharacters < ActiveRecord::Migration
       t.integer :fp
 
       t.string  :job
-      t.string  :race
-      t.string  :weapon
-      t.string  :shield
-      t.string  :armor
-      t.string  :spell
-      t.string  :ring
+      # t.string  :race
+      # t.references  :weapon
+      # t.references  :shield
+      # t.references  :armor
+      # t.references  :spell
+      # t.references  :ring
 
       t.timestamps null: false
     end

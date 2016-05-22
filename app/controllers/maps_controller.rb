@@ -1,7 +1,10 @@
 class MapsController < PcsBaseController
   def index
-    map = Map.build(pc.map)
-    @maps = [map.left, map, map.right]
+    @maps = [
+      pc.map.left || Maps::Nowhere.new,
+      pc.map,
+      pc.map.right || Maps::Nowhere.new
+    ]
   end
 
   def show

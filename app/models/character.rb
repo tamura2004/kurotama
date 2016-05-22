@@ -3,6 +3,23 @@ class Character < ActiveRecord::Base
   after_initialize :set_default_value
   after_commit :check_hp
 
+  belongs_to :map
+  belongs_to :bonefire, class_name: "Map"
+
+  # アイテム類
+  has_many :items, as: :owner
+
+  Item.each_type do |single,pluralize,type|
+    has_many pluralize, as: :owner, class_name: type
+    define_method single do
+      send(pluralize).find_by(equiped: true)
+    end
+    define_method "#{single}=" do |item_name|
+      send(pluralize).update_all(equiped: false)
+      send(pluralize).build(name: item_name, equiped: true)
+    end
+  end
+
   def ability=(ability)
     str,dex,con,int,wis,cha = ability
 
@@ -79,16 +96,22 @@ class Character < ActiveRecord::Base
 
     def set_default_value
       JOBS["持たざるもの"].each do |key,value|
-        if key == "ability"
+        case key
+        when "ability"
           self.ability = value
+
+        when "level"
+          self.level = value
+
         else
-          self[key] ||= value
+          # self[key] ||= value
+
         end
       end
 
       self.name ||= GIVEN_NAMES.sample
-      self.map ||= "北の不死院"
-      self.bonefire ||= "北の不死院"
+      self.map ||= Map.find_by(name: "北の不死院")
+      self.bonefire ||= map
       self.image ||= PC_IMAGES.sample
 
       self.soul ||= 0

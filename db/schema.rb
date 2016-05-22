@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 20160515075555) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "type"
-    t.string   "name"
-    t.string   "map"
-    t.string   "bonefire"
+    t.integer  "map_id"
+    t.integer  "bonefire_id"
+    t.string   "name",        null: false
     t.string   "image"
     t.integer  "log_id"
     t.integer  "est"
@@ -32,25 +32,21 @@ ActiveRecord::Schema.define(version: 20160515075555) do
     t.integer  "hp"
     t.integer  "fp"
     t.string   "job"
-    t.string   "race"
-    t.string   "weapon"
-    t.string   "shield"
-    t.string   "armor"
-    t.string   "spell"
-    t.string   "ring"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.string   "type"
-    t.string   "owner"
-    t.string   "image"
+    t.integer  "owner_id"
+    t.string   "owner_type"
     t.string   "name"
+    t.string   "image"
     t.integer  "level"
     t.integer  "soul"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "equiped",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "logs", force: :cascade do |t|
@@ -64,9 +60,7 @@ ActiveRecord::Schema.define(version: 20160515075555) do
   create_table "maps", force: :cascade do |t|
     t.string   "name",       null: false
     t.integer  "right_id"
-    t.string   "right_type"
     t.integer  "left_id"
-    t.string   "left_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

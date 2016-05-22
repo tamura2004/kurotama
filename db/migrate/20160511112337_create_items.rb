@@ -3,13 +3,13 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
 
       t.string :type
-      t.string :owner
-      t.string :image
+      t.references :owner, polymorphic: true
 
       t.string :name
-
+      t.string :image
       t.integer :level
       t.integer :soul
+      t.boolean :equiped, default: false
 
       t.timestamps null: false
     end

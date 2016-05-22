@@ -1,13 +1,34 @@
 class Item < ActiveRecord::Base
   after_initialize :set_default_value
+  belongs_to :owner, polymorphic: true
+
+  def self.each_type
+    %w(weapon shield armor ring spell).each do |single|
+      pluralize = single.pluralize.to_sym
+      type = "items/#{single}".classify
+      single = single.to_sym
+      yield single,pluralize,type
+    end
+  end
 
   private
     def set_default_value
-      self.image ||= "item/ソード.png" if name =~ /剣/
-      self.image ||= "item/シールド.png" if name =~ /シールド/
-      self.image ||= "item/アーマー.png" if name =~ /鎧/
-      self.image ||= "item/リング.png" if name =~ /指輪/
-      self.image ||= "item/エスト瓶.png" if name =~ /エスト/
+      case type
+      when "Items::Weapon"
+        self.image ||= "item/ソード.png"
+
+      when "Items::Shield"
+        self.image ||= "item/シールド.png"
+
+      when "Items::Armor"
+        self.image ||= "item/アーマー.png"
+
+      when "Items::Ring"
+        self.image ||= "item/リング.png"
+
+      when "Items::Soul"
+        self.image ||= "item/ソウル.png"
+      end
     end
 
 end
