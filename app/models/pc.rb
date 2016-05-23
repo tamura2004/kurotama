@@ -13,11 +13,8 @@ class Pc < Character
       tap do |p|
         p.map = "北の不死院"
         p.hp = max_hp
-        # p.weapon = "なし"
-        # p.shield = "なし"
         p.soul = 0
       end
       save
-
     end
 end

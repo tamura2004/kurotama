@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160515075555) do
 
   create_table "maps", force: :cascade do |t|
     t.string   "name",       null: false
+    t.string   "image"
     t.integer  "right_id"
     t.integer  "left_id"
     t.datetime "created_at", null: false

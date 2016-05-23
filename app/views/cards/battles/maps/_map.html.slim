@@ -4,7 +4,6 @@
     h4 = map.name
     .labels
       = render Pcs::Label.build(map.pcs)
-      = render Items::Label.build(map.traps)
       = render Items::Label.build(map.souls)
       = render Mobs::Label.build(map.mobs)
 

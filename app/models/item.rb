@@ -2,6 +2,14 @@ class Item < ActiveRecord::Base
   after_initialize :set_default_value
   belongs_to :owner, polymorphic: true
 
+  def owner=(name)
+    if map = Map.find_by(name: name)
+      super(map)
+    elsif character = Character.find_by(name: name)
+      super(character)
+    end
+  end
+
   def self.each_type
     %w(weapon shield armor ring spell).each do |single|
       pluralize = single.pluralize.to_sym

@@ -59,6 +59,7 @@ maps.each do |area|
     Map.seed do |s|
       s.id = id
       s.name = name
+      s.image = "land/#{name}.png"
     end
   end
 end

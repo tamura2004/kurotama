@@ -3,8 +3,6 @@
   .caption
     h4 = map.name
     = render Pcs::Label.build(map.pcs)
-    / = render Npcs::Label.build(map.npcs)
-    / = render Items::Label.build(map.traps)
     = render Items::Label.build(map.souls)
     = render Items::Label.build(map.weapons)
     = render Items::Label.build(map.shields)
@@ -13,5 +11,5 @@
   .footer
     hr
     - name = map.name == pc.map ? "調査" : "移動"
-    = patch_button_to name, map_path(name: map.name)
+    = patch_button_to name, map_path(map)
 

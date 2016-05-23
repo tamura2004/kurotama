@@ -4,25 +4,7 @@
     h4 = pc.name
     = render Bars::Hp.new(pc)
     = render Bars::Fp.new(pc)
-
-    = tag_label pc.job, :default
-    = tag_label "#{pc.level}lv", :default
-    = tag_label "魂#{pc.soul}", :primary
-    = tag_label "人間性#{pc.cha}", :primary
-    = tag_label "#{pc.hp}hp", :danger
-    = tag_label "#{pc.fp}fp", :success
-    = tag_label "筋#{pc.str}", :info
-    = tag_label "敏#{pc.dex}", :info
-    = tag_label "体#{pc.con}", :info
-    = tag_label "理#{pc.int}", :info
-    = tag_label "信#{pc.wis}", :info
-
-    = tag_label pc.weapon, :warning
-    = tag_label pc.shield, :warning
-    = tag_label pc.armor, :warning
-    = tag_label pc.spell, :warning
-    = tag_label pc.ring, :warning
-
+    = render partial: "pcs/labels", locals: {pc: pc}
   .footer
     hr
     = patch_button_to "選ぶ", pc_path(pc.id)

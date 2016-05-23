@@ -1,5 +1,13 @@
 class MapsController < PcsBaseController
   def index
+    # Map.includes(:left)
+    #   .includes(:right)
+    #   .includes(:pcs)
+    #   .includes(:mobs)
+    #   .includes(:weapons)
+    #   .includes(:shields)
+    #   .includes(:souls)
+    #   .includes(:level_ups)
     @maps = [
       pc.map.left || Maps::Nowhere.new,
       pc.map,
@@ -8,7 +16,7 @@ class MapsController < PcsBaseController
   end
 
   def show
-    map = Map.build(params[:name])
+    map = Map.find(params[:id])
     if map.name == "篝火"
       Log.success "篝火を使った"
       redirect_to :admins_mobs_setup
@@ -23,14 +31,13 @@ class MapsController < PcsBaseController
   end
 
   def update
-    name = params[:name]
-    map = Map.build(name)
+    map = Map.find(params[:id])
 
-    if name == pc.map
-      redirect_to map_path(name: name)
+    if map.id == pc.map_id
+      redirect_to map_path(map)
 
     else
-      pc.update(map: name)
+      pc.update(map_id: map.id)
       redirect_to :maps
     end
 

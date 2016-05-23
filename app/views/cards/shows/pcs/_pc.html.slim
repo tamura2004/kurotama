@@ -14,13 +14,13 @@
     = tag_label "理#{pc.int}", :info
     = tag_label "信#{pc.wis}", :info
 
-    = tag_label pc.weapon, :warning
-    = tag_label pc.shield, :warning
-    = tag_label pc.armor, :warning
-    = tag_label pc.spell, :warning
-    = tag_label pc.ring, :warning
+    = tag_label pc.weapon.name, :warning
+    = tag_label pc.shield.name, :warning
+    = tag_label pc.armor.name, :warning
+    = tag_label pc.spell.name, :warning
+    = tag_label pc.ring.name, :warning
   .footer
     hr
     = get_button_to "イラスト変更", :new_pcs_image
     = get_button_to "名前変更", :new_pcs_name
-    = get_button_to "#{pc.map}へ", :maps
+    = get_button_to "#{pc.map.name}へ", :maps

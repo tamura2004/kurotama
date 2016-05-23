@@ -20,6 +20,12 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def map=(name)
+    if map = Map.find_by(name: name)
+      super(map)
+    end
+  end
+
   def ability=(ability)
     str,dex,con,int,wis,cha = ability
 
@@ -56,7 +62,8 @@ class Character < ActiveRecord::Base
   end
 
   def damage
-    data = WEAPONS[weapon]
+
+    data = WEAPONS[weapon.name]
     ability.zip(data["補正"]).inject(data["ダメージ"]) do |a,b|
       a += b[0] * b[1]
     end
@@ -110,7 +117,7 @@ class Character < ActiveRecord::Base
       end
 
       self.name ||= GIVEN_NAMES.sample
-      self.map ||= Map.find_by(name: "北の不死院")
+      self.map ||= "北の不死院"
       self.bonefire ||= map
       self.image ||= PC_IMAGES.sample
 

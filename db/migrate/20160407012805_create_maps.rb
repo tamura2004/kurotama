@@ -3,6 +3,7 @@ class CreateMaps < ActiveRecord::Migration
     create_table :maps do |t|
 
       t.string :name, null: false
+      t.string :image
 
       t.references :right
       t.references :left

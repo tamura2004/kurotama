@@ -5,48 +5,12 @@ class Map < ActiveRecord::Base
   has_many :rights, class_name: "Map", foreign_key: :right_id
   has_many :lefts, class_name: "Map", foreign_key: :left_id
 
-  # def self.build(name)
-  #   name ? new(name) : Maps::Nowhere.new
-  # end
+  has_many :pcs
+  has_many :mobs
 
-  # def initialize(name)
-  #   @name = name
-  # end
-
-  # def pcs
-  #   Pc.where(map: name)
-  # end
-
-  # def traps
-  #   Items::Trap.where(owner: name)
-  # end
-
-  # def mobs
-  #   Mob.where(map: name)
-  # end
-
-  # def items
-  #   @items ||= Item.where(owner: name).to_a
-  # end
-
-  # def souls
-  #   items.select{|i|i.type == "Items::Soul"}
-  # end
-
-  # def weapons
-  #   items.select{|i|i.type == "Items::Weapon"}
-  # end
-
-  # def shields
-  #   items.select{|i|i.type == "Items::Shield"}
-  # end
-
-  # def level_ups
-  #   items.select{|i|i.type == "Items::LevelUp"}
-  # end
-
-  # def image
-  #   "land/#{name}.png"
-  # end
-
+  has_many :items, as: :owner
+  has_many :souls, class_name: "Items::Soul", as: :owner
+  has_many :weapons, class_name: "Items::Weapon", as: :owner
+  has_many :shields, class_name: "Items::Shield", as: :owner
+  has_many :level_ups, class_name: "Items::LevelUp", as: :owner
 end
